@@ -1,0 +1,18 @@
+# Template file for 'tofi'
+pkgname=tofi
+version=0.8.1
+revision=1
+build_style=meson
+makedepends="freetype-devel cairo-devel pango-devel wayland-devel libxkbcommon-devel harfbuzz meson ninja scdoc"
+depends="wayland-protocols"
+short_desc="Rofi replacement for wlroots-based Wayland compositors such as Sway"
+maintainer="Iago Roger <iagoroger1516@gmail.com>"
+license="MIT"
+homepage="https://github.com/philj56/tofi"
+distfiles="https://github.com/philj56/${pkgname}/archive/refs/tags/v${version}.tar.gz"
+checksum=0a700f8b0291ef08b3544cd589157393101d52bbd1e7e6aeee8484f9d520a338
+
+post_install() {
+	ninja -C build install
+	vlicense LICENSE
+}
