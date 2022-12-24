@@ -1,0 +1,18 @@
+# Template file for 'font-cascadia-code'
+pkgname=font-cascadia-code
+version=2111.01
+revision=1
+create_wrksrc=yes
+hostmakedepends="unzip"
+depends="font-util xbps-triggers"
+short_desc="Monospaced font for Microsoft Terminal with programming ligatures"
+maintainer="Felipe Nogueira <contato.fnog@gmail.com>"
+license="OFL-1.1"
+homepage="https://github.com/microsoft/cascadia-code"
+distfiles="https://github.com/microsoft/cascadia-code/releases/download/v${version}/CascadiaCode-${version}.zip"
+checksum=51fd68176dffb87e2fbc79381aef7f5c9488b58918dee223cd7439b5aa14e712
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+	install -Dm644 ttf/static/* -t ${DESTDIR}/${font_dirs}
+}
